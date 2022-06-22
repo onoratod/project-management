@@ -24,6 +24,17 @@ File paths for the project are generated in a code file `set_environment.do` and
 include "${github}/project_name/code/set_environment.do"
 ```
 
-And all the relevant filepaths will be loaded. The root directory for the project is `${github}/project_name`, so as long as `${github}` is defined appropriately for your machine you will be able to run all of the code. 
+And all the relevant filepaths will be loaded. The root directory for the project is `${github}/project_name`, so as long as `${github}` is defined appropriately for your machine you will be able to run all of the code.
+
+An example might look like
+
+```stata
+* Filepaths
+global root "${github}/project_name"
+global raw "${root}/data/raw
+global graphs "${root}/output/graphs
+```
+
+All filepaths are defined relative to the `${root}` global, so as long as this points to the project folder on your machine the code should run!
 
 I like to use Github, so all of my projects are hosted in my local Github folder which is referenced by the `${github}` global. I store all of my data in Dropbox and use symbolic links so that I can reference files in my Dropbox locally from my Github folders. For these projects the root directory relies on the `${github}` global. Other projects might be entirely hosted on Dropbox and those will rely on the Dropbox global. In rare cases, some projects may use both, and will rely on both globals.
