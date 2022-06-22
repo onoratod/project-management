@@ -31,8 +31,8 @@ An example might look like
 ```stata
 * Filepaths
 global root "${github}/project_name"
-global raw "${root}/data/raw
-global graphs "${root}/output/graphs
+global raw "${root}/data/raw"
+global graphs "${root}/output/graphs"
 ```
 
 All filepaths are defined relative to the `${root}` global, so as long as this points to the project folder on your machine the code should run!
