@@ -35,6 +35,6 @@ global raw "${root}/data/raw"
 global graphs "${root}/output/graphs"
 ```
 
-All filepaths are defined relative to the `${root}` global, so as long as this points to the project folder on your machine the code should run! In order for Stata to be able to run `set_environment.do` we need the "${github}" and "${dropbox}" globals to be defined! Hence the use of the `profile.do`.
+All filepaths are defined relative to the `${root}` global, so as long as this points to the project folder on your machine the code should run! In order for Stata to be able to run `set_environment.do` we need the `"${github}"` and `"${dropbox}"` globals to be defined! Hence the use of the `profile.do`.
 
 I like to use Github, so all of my projects are hosted in my local Github folder which is referenced by the `${github}` global. I store all of my data in Dropbox and use symbolic links so that I can reference files in my Dropbox locally from my Github folders. For these projects the root directory relies on the `${github}` global. Other projects might be entirely hosted on Dropbox and those will rely on the Dropbox global. In rare cases, some projects may use both, and will rely on both globals.
