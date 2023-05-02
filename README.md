@@ -37,4 +37,22 @@ global graphs "${root}/output/graphs"
 
 All filepaths are defined relative to the `${root}` global, so as long as this points to the project folder on your machine the code should run! In order for Stata to be able to run `set_environment.do` we need the `"${github}"` and `"${dropbox}"` globals to be defined! Hence the use of the `profile.do`.
 
+## Setting up symbolic links
+
 I like to use Github, so all of my projects are hosted in my local Github folder which is referenced by the `${github}` global. I store all of my data in Dropbox and use symbolic links (see here: [Mac](https://apple.stackexchange.com/questions/115646/how-can-i-create-a-symbolic-link-in-terminal), [Windows](https://www.howtogeek.com/howto/16226/complete-guide-to-symbolic-links-symlinks-on-windows-or-linux/_)) so that I can reference files in my Dropbox locally from my Github folders. For these projects the root directory relies on the `${github}` global. Other projects might be entirely hosted on Dropbox and those will rely on the Dropbox global. In rare cases, some projects may use both, and will rely on both globals.
+
+To do this on Mac, navigate from the terminal to the Github project on your machine. Then write 
+```bash 
+ln -s /Users/onoratod/Dropbox/projects/example/data
+```
+where the path should point to the Dropbox directly you want to link to. You'll need to repeat this for each folder you want to link over to your Github directory. 
+
+It is important that you appropriately modify the `.gitignore` file so that Github doesn't try to upload all of these pesky symbolic links. For example, you should add this to your `.gitignore` file when adding the above directory so that it ignores the data folder we linked to. 
+
+```bash
+/data
+data 
+data/
+```
+
+
