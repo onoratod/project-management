@@ -12,7 +12,8 @@ data
   └── raw 
   └── derived 
 output
-  └── graphs
+  └── figures
+  └── tables 
 ```
 
 The **code** folder holds all of the code for a project, which depending on the situation may be hosted on Github or Dropbox (more on this later). The **build** subfolder stores code files that are concerned with constructing data for the project (turning `raw` files into `derived` files). The **analysis** subfolder stores code that runs the analysis for the project. The `metafile.do` file is a master do file that should theoretically be able to replicate the project. It should contain all the relevant do files listed in order and briefly described. In theory, equipped with the `raw` folder and the `code` folder, running `metafile.do` should be able to re-create everything else in the project.
