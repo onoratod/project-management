@@ -22,7 +22,7 @@ The **data** folder holds all the data for the project. The **raw** folder are d
 
 # File paths
 
-File paths are always a tricky issue that make it different to share code among individuals with different setups. To try and simplify this, I define a set of globals in my `profile.do` which is a file run every time Stata is started. The relevant globals are `${dropbox}` and `${github}`. In theory, as long as you define globals to point to where the data are store and the code is located (sometimes these will be the same) on your machine then you will be able to run all subsequent do-files. 
+File paths are always a tricky issue that make it difficult to share code among individuals with different setups. To try and simplify this, I define a set of globals in my `profile.do` which is a file run every time Stata is started. The relevant globals are `${dropbox}` and `${github}`. In theory, as long as you define globals to point to where the data are stored and the code is located (sometimes these will be the same) on your machine then you will be able to run all subsequent do-files. 
 
 File paths for the project are generated in a code file `set_environment.do` and are all relative to a `${root}` directory which will depend on the `${dropbox}` and `${github}` globals. This code file is loaded by each other code file at the top
 
@@ -51,7 +51,7 @@ To do this on Mac, navigate from the terminal to the Github project on your mach
 ```bash 
 ln -s /Users/onoratod/Dropbox/projects/example/data
 ```
-where the path should point to the Dropbox directly you want to link to. You'll need to repeat this for each folder you want to link over to your Github directory. 
+where the path should point to the Dropbox directory that you want to link to. You'll need to repeat this for each folder you want to link over to your Github directory. 
 
 It is important that you appropriately modify the `.gitignore` file so that Github doesn't try to upload all of these pesky symbolic links. For example, you should add this to your `.gitignore` file when adding the above directory so that it ignores the data folder we linked to. 
 
